@@ -8,21 +8,12 @@ import java.util.List;
 import java.util.Objects;
 
 //@Getter @Setter @NoArgsConstructor
-public class Aluno {
+public class Aluno extends Pessoa{
 
-    private String nome;
-    private int idade;
-    private String dataNascimento;
-    private String registroGeral;
-    private String numeroCpf;
-    private String nomeMae;
-    private String nomePai;
     private String dataMatricula;
     private String nomeEscola;
     private String serieMatriculado;
     private String resultado;
-
-
     /*Declarando minnha classe de Disciplina como sendo uma Lista*/
     /*Significa que eu tenho uma lista de Disciplinas*/
     private List <Disciplina> disciplinas = new ArrayList<Disciplina>();
@@ -41,6 +32,8 @@ public class Aluno {
 
 
     public Aluno(String nomePadrao) {
+
+
 
     }
 
@@ -124,23 +117,23 @@ public class Aluno {
         this.serieMatriculado = serieMatriculado;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Aluno{" +
-//                "nome='" + nome + '\'' +
-//                ", idade=" + idade +
-//                ", dataNascimento='" + dataNascimento + '\'' +
-//                ", registroGeral='" + registroGeral + '\'' +
-//                ", numeroCpf='" + numeroCpf + '\'' +
-//                ", nomeMae='" + nomeMae + '\'' +
-//                ", nomePai='" + nomePai + '\'' +
-//                ", dataMatricula='" + dataMatricula + '\'' +
-//                ", nomeEscola='" + nomeEscola + '\'' +
-//                ", serieMatriculado='" + serieMatriculado + '\'' +
-//                ", resultado='" + resultado + '\'' +
-//                ", disciplinas=" + disciplinas +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", dataNascimento='" + dataNascimento + '\'' +
+                ", registroGeral='" + registroGeral + '\'' +
+                ", numeroCpf='" + numeroCpf + '\'' +
+                ", nomeMae='" + nomeMae + '\'' +
+                ", nomePai='" + nomePai + '\'' +
+                ", dataMatricula='" + dataMatricula + '\'' +
+                ", nomeEscola='" + nomeEscola + '\'' +
+                ", serieMatriculado='" + serieMatriculado + '\'' +
+                ", resultado='" + resultado + '\'' +
+                ", disciplinas=" + disciplinas +
+                '}';
+    }
 
     /**********************************************************************/
 
@@ -176,4 +169,17 @@ public class Aluno {
         return resultado;
     }
 
+    @Override
+    public boolean pessoaMaiorIdade() {
+        return idade >= 18;
+    }
+
+    @Override
+    public double salario() {
+        return 500;
+    }
+
+    public String msgMaiorIdade(){
+        return this.pessoaMaiorIdade() ? "Aluno maior de idade" : "Aluno menor de idade";
+    }
 }
